@@ -1,0 +1,1 @@
+<input class="in-inputbox" value="出发地" onFocus="if(value==defaultValue){value='';this.style.color='#000';this.type='password'}" onBlur="if(!value){value=defaultValue;this.style.color='#999';this.type='text'}">
