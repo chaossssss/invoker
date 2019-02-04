@@ -1,0 +1,1 @@
+.eslintrc注释掉'eslint:recommended'
