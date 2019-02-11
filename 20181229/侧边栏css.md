@@ -1,1 +1,113 @@
-https://www.cnblogs.com/huair_12/p/4130063.html
+/* 动画定义 */
+@-webkit-keyframes move_right {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(120px);
+        transform: translateX(120px);
+    }
+}
+@keyframes move_right {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(120px);
+        transform: translateX(120px);
+    }
+}
+@-webkit-keyframes move_left {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translateX(-120px);
+        transform: translateX(-120px);
+    }
+}
+@keyframes move_left {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translateX(-120px);
+        transform: translateX(-120px);
+    }
+}
+@-webkit-keyframes move_up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(-250px);
+        transform: translateY(-250px);
+    }
+}
+@keyframes move_up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(-250px);
+        transform: translateY(-250px);
+    }
+}
+
+
+/* 动画绑定 */
+.move_right {
+    -webkit-animation-name            : move_right;
+    animation-name            : move_right;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+.move_left {
+    -webkit-animation-name            : move_left;
+    animation-name            : move_left;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+.move_up {
+    -webkit-animation-name            : move_up;
+    animation-name            : move_up;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+.fadeIn {
+    -webkit-transform : translateX(120px);
+    transform : translateX(120px); 
+    opacity: 1;
+}
+.fadeInUp {
+    -webkit-transform : translateY(-250px);
+    transform : translateY(-250px);
+    opacity: 1;
+    -webkit-transition :-webkit-transform .2s ease-out,opacity .2s ease-out; 
+    transition :transform .2s ease-out, opacity .2s ease-out;
+}
+.fadeOutLeft {
+    -webkit-transform : translateX(-120px);
+    transform : translateX(-120px); 
+    opacity: 0.0;
+    -webkit-transition :-webkit-transform .2s ease-out,opacity .2s ease-out; 
+    transition :transform .2s ease-out, opacity .2s ease-out;
+}
