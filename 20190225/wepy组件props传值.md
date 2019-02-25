@@ -1,1 +1,1 @@
-props属性名居然不能有大写
+<child :prop="value"></child>
