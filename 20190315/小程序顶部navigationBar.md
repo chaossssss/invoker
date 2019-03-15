@@ -1,0 +1,1 @@
+小程序全局配置app.json增加选项："navigationStyle": "custom",
