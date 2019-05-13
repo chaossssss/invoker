@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <title>法瑞集成灶，万人疯抢</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/fr/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/fr/ydui.css">
+    <link rel="stylesheet" type="text/css" href="/css/fr/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="/css/fr/globe.css?version=@(DateTime.Now.ToFileTimeUtc().ToString())">
+    <link rel="stylesheet" type="text/css" href="/css/fr/bindex.css?version=@(DateTime.Now.ToFileTimeUtc().ToString())" >
+    <script src="/js/fr/flexable.js"></script>
+</head>
+
+<body>
+
+    <div class="loading" id="loading">
+        <div class="la-ball-newton-cradle">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="bbody">
+        <div class="blogo">
+            <img src="/images/fr/blogo.png" alt="法瑞">
+        </div>
+        <img class="blucky1" src="/images/fr/blucky1.png">
+        <div class="draw-box">
+            <div class="draw" id="lottery">
+                <table>
+                    <tr>
+                        <td class="item lottery-unit lottery-unit-0">
+                            <div class="img">
+                                <img src="/images/fr/b2.png" alt="">
+                            </div>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="item lottery-unit lottery-unit-1">
+                            <div class="img">
+                                <img src="/images/fr/b4.png" alt="">
+                            </div>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="item lottery-unit lottery-unit-2">
+                            <div class="img">
+                                <img src="/images/fr/b3.png" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gap-2" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="item lottery-unit lottery-unit-7">
+                            <div class="img">
+                                <img src="/images/fr/b3.png" alt="">
+                            </div>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="">
+                            <a class="draw-btn" href="javascript:"></a>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="item lottery-unit lottery-unit-3">
+                            <div class="img">
+                                <img src="/images/fr/b4.png" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gap-2" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="item lottery-unit lottery-unit-6">
+                            <div class="img">
+                               <img src="/images/fr/b4.png" alt="">
+                            </div>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="item lottery-unit lottery-unit-5">
+                            <div class="img">
+                                <img src="/images/fr/b2.png" alt="">
+                            </div>
+                        </td>
+                        <td class="gap"></td>
+                        <td class="item lottery-unit lottery-unit-4">
+                            <div class="img">
+                                <img src="/images/fr/b1.png" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- <div class="prize_num"><p>1</p></div> -->
+
+        <div class="rule">
+            <div class="rule_body">
+                <img class="btitle" src="/images/fr/btitle.png">
+                <p class="rule_tle">活动时间：</p>
+                <p class="tule_word">2019年4月20日-5月10日</p>
+                <p class="rule_tle">活动规则：</p>
+                <p class="tule_word">1.凡在五一促销活动期间，下单购买法瑞集成灶后，手持“远离油烟，就选法瑞集成灶”KT板拍照发于朋友圈，可获得二维码一枚，扫码进入抽奖页面，享受一次抽奖机会。<br />
+                    2.用户在完成抽奖环节后，在页面填写个人信息，必须实名。<br />
+                    3.凡在五一促销活动期间，订购霸王鲸、白鲨鲸或海豚鲸，额外获赠高端手工水槽一台。</p>
+                <p class="rule_tle">活动奖品：<span>（百分百中奖）</span></p>
+                <p class="tule_word">一等奖：海尔对开门冰箱<br />二等奖：55英寸智能高清电视<br />三等奖：海尔全自动洗衣机<br />四等奖：精美刀具+高端炒锅一个</p>
+                <p class="tule_word"><b>本次活动最终解释权归浙江瑞友厨具科技有限公司所有</b></p>
+            </div>
+        </div>
+
+        <!-- <div class="index_thinks">
+            <p>远离油烟，就选法瑞集成灶！</p>
+        </div> -->
+
+        <div class="chinamap">
+            <img src="/images/fr/chinamap.png">
+        </div>
+
+        <div class="footer_bg"></div>
+        @Html.Action("luckList")
+
+    </div>
+    
+    <div class="lucky" style="display: none;">
+        <div class="mask"></div>
+        <div class="lucky_con">
+            <div class="lucky_close"></div>
+            <div id="lucky_img">
+                <img src="">
+            </div>
+            <div class="lucky_tijiao">
+                <img src="/images/fr/prize_tj.png">
+            </div>
+            <p>*请务必准确填写你的个人信息，乱填或不填者视为自动放弃！</p>
+        </div>
+    </div>
+
+    <div class="info" style="display: none;">
+        <div class="mask"></div>
+        <div class="info_con">
+            <div class="lucky_close"></div>
+            <div class="info_title">
+                <img src="/images/fr/info_title.png">
+            </div>
+            <div class="info_form">
+                <div class="info_input">
+                    <input type="" name="" id="RealName" placeholder="您的姓名">
+                </div>
+                <div class="info_input">
+                    <input type="tel" name="mobile" id="Mobile" placeholder="联系方式" data-validate='tel' maxlength="11" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="(function(){ this.v&&this.v(); }).call(this)">
+                </div>
+                <div class="info_input">
+                    <input type="text" name="j-address" readonly="" id="J_Address" placeholder="请选择省、市、县">
+                </div>
+                <div class="info_input">
+                    <textarea name="address" placeholder="详细地址" id="Address"></textarea>
+                </div>
+            </div>
+            <div class="info_tijiao">
+                <img src="/images/fr/prize_tj.png">
+            </div>
+            <p>*请仔细填写正确的个人信息！</p>
+        </div>
+    </div>
+
+    <script src="/js/fr/jquery.min.js"></script>
+    <script src="/js/fr/swiper.min.js"></script>
+    <script src="/js/fr/ydui.js"></script>
+    <script src="/js/fr/ydui.cityselect.js"></script>
+    <script src="/js/fr/ydui.citys.js"></script>
+    <script src="/js/fr/sweetalert.min.js"></script>
+    <script src="/js/fr/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="/js/fr/globe.js?version=@(DateTime.Now.ToFileTimeUtc().ToString())"></script>
+    <script>
+
+        var lottery = {
+            index: -1, //当前转动到哪个位置，起点位置
+            count: 0, //总共有多少个位置
+            timer: 0, //setTimeout的ID，用clearTimeout清除
+            speed: 20, //初始转动速度
+            times: 0, //转动次数
+            cycle: 32, //转动基本次数：即至少需要转动多少次再进入抽奖环节
+            prize: -1, //中奖位置
+            init: function(id) {
+                if($('#' + id).find('.lottery-unit').length > 0) {
+                    $lottery = $('#' + id);
+                    $units = $lottery.find('.lottery-unit');
+                    this.obj = $lottery;
+                    this.count = $units.length;
+                    $lottery.find('.lottery-unit.lottery-unit-' + this.index).addClass('active');
+                };
+            },
+            roll: function() {
+                var index = this.index;
+                var count = this.count;
+                var lottery = this.obj;
+                $(lottery).find('.lottery-unit.lottery-unit-' + index).removeClass('active');
+                index += 1;
+                if(index > count - 1) {
+                    index = 0;
+                };
+                $(lottery).find('.lottery-unit.lottery-unit-' + index).addClass('active');
+                this.index = index;
+                return false;
+            },
+            stop: function(index) {
+                this.prize = index;
+                switch (this.prize){
+                    case 0:
+                        prizeImg(2);
+                        break;
+                    case 1:
+                        prizeImg(4);
+                        break;
+                    case 2:
+                        prizeImg(3);
+                        break;
+                    case 3:
+                        prizeImg(4);
+                        break;
+                    case 4:
+                        prizeImg(1);
+                        break;
+                    case 5:
+                        prizeImg(2);
+                        break;
+                    case 6:
+                        prizeImg(4);
+                        break;
+                    case 7:
+                        prizeImg(3);
+                        break;
+                }
+                return false;
+            }
+        };
+
+        function roll() {
+            lottery.times += 1;
+            lottery.roll(); //转动过程调用的是lottery的roll方法，这里是第一次调用初始化
+
+            if(lottery.times > lottery.cycle + 10 && lottery.prize == lottery.index) {
+                clearTimeout(lottery.timer);
+                lottery.stop(lottery.prize)            
+                lottery.prize = -1;
+                lottery.times = 0;
+                click = false;
+            } else {
+                if(lottery.times < lottery.cycle) {
+                    lottery.speed -= 10;
+                } else if(lottery.times == lottery.cycle) {
+                    // var index = Math.random() * (lottery.count) | 0; //静态演示，随机产生一个奖品序号，实际需请求接口产生
+                    // lottery.prize = index;
+
+                } else {
+                    if(lottery.times > lottery.cycle + 10 && ((lottery.prize == 0 && lottery.index == 7) || lottery.prize == lottery.index + 1)) {
+                        lottery.speed += 110;
+                    } else {
+                        lottery.speed += 20;
+                    }
+                }
+                if(lottery.speed < 40) {
+                    lottery.speed = 40;
+                };
+                lottery.timer = setTimeout(roll, lottery.speed); //循环调用
+            }
+            
+            return false;
+        }
+
+        var click = false;
+
+        window.onload = function() {
+            lottery.init('lottery');
+            $('.draw-btn').click(function() {
+                if(click) { //click控制一次抽奖过程中不能重复点击抽奖按钮，后面的点击不响应
+                    return false;
+                } else {
+                    lottery.speed = 100;
+                    $.post("/fr/CjForm", {
+                        mano: "@(ViewBag.MaNo)"
+                    }, function(data) {
+                        console.log(data);
+                        if(data == "0"){
+                            $(".info").show();
+                            // $(".prize_num p").html("0");
+                        }else if(data == "-1"){
+                            swal({
+                                title: "OMG!", 
+                                text: "您的抽奖机会已使用完毕，感谢您的关注!",
+                                imageUrl: "/images/fr/whale.png",
+                                showCancelButton: false,
+                                confirmButtonText: "确定",
+                                confirmButtonColor: "#108dd8"
+                            },
+                            function(isconfirm){
+                                // $(".prize_num p").html("0");
+                            });
+                        }else if(data == "-2"){
+                            swal({
+                                title: "OMG!", 
+                                text: "很抱歉，活动已经结束啦，感谢您的关注!",
+                                imageUrl: "/images/fr/whale.png",
+                                showCancelButton: false,
+                                confirmButtonText: "确定",
+                                confirmButtonColor: "#108dd8"
+                            },
+                            function(isconfirm){
+                                // $(".prize_num p").html("0");
+                            });
+                        }else{
+                            switch (data) {
+                                case "1":
+                                    lottery.prize = 4
+                                    break;
+                                case "2":
+                                    lottery.prize = 0
+                                    break;
+                                case "3":
+                                    lottery.prize = 2
+                                    break;
+                                case "4":
+                                    lottery.prize = 1
+                                    break;
+                                case "5":
+                                    lottery.prize = 4
+                                    break;
+                                case "6":
+                                    lottery.prize = 5
+                                    break;
+                                case "7":
+                                    lottery.prize = 7
+                                    break;
+                                case "8":
+                                    lottery.prize = 6
+                                    break;
+                            }
+                            roll(); //转圈过程不响应click事件，会将click置为false
+                        } 
+                    }) 
+                    
+                    
+                    click = false;      
+                    return false;
+                }
+            });
+        };
+
+
+
+
+
+
+
+
+        function prizeImg(x){
+            $("#lucky_img img").attr("src","/images/fr/prize0"+ x +"b.png?v=002");
+            $(".lucky").show();
+        }
+
+
+
+
+        // $(function (){
+
+
+        //     var rotateTimeOut = function (){
+        //         $('#rotate').rotate({
+        //             angle:0,
+        //             animateTo:2160,
+        //             duration:8000,
+        //             callback:function (){
+        //                 alert('网络超时，请检查您的网络设置！');
+        //             }
+        //         });
+        //     };
+        //     var bRotate = false;
+        //     var rotateFn = function (awards, angles, txt){
+        //         bRotate = !bRotate;
+        //         $('#rotate').stopRotate();
+        //         $('#rotate').rotate({
+        //             angle:0,
+        //             animateTo:angles+2160,
+        //             duration:5000,
+        //             callback:function (){
+
+        //                 switch (awards){
+        //                     case 1:
+        //                         prizeImg(1);
+        //                     break;
+        //                     case 2:
+        //                         prizeImg(2);
+        //                     break;
+        //                     case 3:
+        //                         prizeImg(3);
+        //                     break;
+        //                     case 4:
+        //                         prizeImg(4);
+        //                     break;
+        //                 }
+        //                 bRotate = !bRotate;
+        //             }
+        //         })
+        //     };
+
+        //     $('.pointer').click(function (){
+        //         //function Luckdraw(){
+        //             if(bRotate)return;
+        //             var item;
+        //             //var item = "7";
+        //             $.post("/fr/CjForm", {
+        //                 mano: "@(ViewBag.MaNo)"
+        //             }, function(data) {
+        //                 if(data == "0"){
+        //                     $(".info").show();
+        //                     // $(".prize_num p").html("0");
+        //                 }else if(data == "-1"){
+        //                     swal({
+        //                         title: "OMG!", 
+        //                         text: "您的抽奖机会已使用完毕，感谢您的关注!",
+        //                         imageUrl: "/images/fr/whale.png",
+        //                         showCancelButton: false,
+        //                         confirmButtonText: "确定",
+        //                         confirmButtonColor: "#108dd8"
+        //                     },
+        //                     function(isconfirm){
+        //                         // $(".prize_num p").html("0");
+        //                     });
+        //                 }else if(data == "-2"){
+        //                     swal({
+        //                         title: "OMG!", 
+        //                         text: "很抱歉，活动已经结束啦，感谢您的关注!",
+        //                         imageUrl: "/images/fr/whale.png",
+        //                         showCancelButton: false,
+        //                         confirmButtonText: "确定",
+        //                         confirmButtonColor: "#108dd8"
+        //                     },
+        //                     function(isconfirm){
+        //                         // $(".prize_num p").html("0");
+        //                     });
+        //                 }else{
+        //                     item = data ;
+        //                     console.log(item)
+        //                     switch (item) {
+        //                         case "1":
+        //                             rotateFn(1, 0, '一等奖：海尔对开门冰箱');
+        //                             break;
+        //                         case "2":
+        //                             rotateFn(2, 270, '二等奖：55英寸智能高清电视');
+        //                             break;
+        //                         case "3":
+        //                             rotateFn(3, 225, '三等奖：时尚拎包+高端炒锅一个');
+        //                             break;
+        //                         case "4":
+        //                             rotateFn(4, 315, '四等奖：精美刀具+高端炒锅一个');
+        //                             break;
+        //                         case "5":
+        //                             rotateFn(1, 135, '一等奖：海尔对开门冰箱');
+        //                             break;
+        //                         case "6":
+        //                             rotateFn(2, 90, '二等奖：55英寸智能高清电视');
+        //                             break;
+        //                         case "7":
+        //                             rotateFn(3, 45, '三等奖：时尚拎包+高端炒锅一个');
+        //                             break;
+        //                         case "8":
+        //                             rotateFn(4, 180, '四等奖：精美刀具+高端炒锅一个');
+        //                             break;
+        //                     }
+        //                 } 
+        //             })           
+        //     });
+        // })
+
+        $(".mask").on("click",function(){
+            $(this).parent().hide();
+        })
+        $(".lucky_close").on("click",function(){
+            $(".lucky").hide();
+        })
+
+        $(".lucky_tijiao").on("click",function(){
+            $(".lucky").hide();
+            $(".info").show();
+        })
+
+        !function () {
+            var $target = $('#J_Address');
+            $target.citySelect();
+            $target.on('click', function (event) {
+                event.stopPropagation();
+                $target.citySelect('open');
+            });
+            $target.on('done.ydui.cityselect', function (ret) {
+                $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            });
+        }();
+
+        /*表单提交*/
+        var cansub = true;
+        if(cansub){
+            $(".info_tijiao").click(function() {
+                cansub = false;
+                var name = $("#RealName").val();
+                if ($.trim(name) == "") {
+                    swal("OMG!", "请输入您的姓名!", "error");
+                    return false;
+                }
+                var myReg = /^[\u4e00-\u9fa5]+$/;
+                if (!myReg.test(name)) {
+                    swal("OMG!", "姓名应为中文！!", "error");
+                    return false;
+                }
+                var tel = $("#Mobile").val();
+                if ($.trim(tel) == "") {
+                    swal("OMG!", "手机号码不得为空!", "error");
+                    return false;
+                }
+                var reg = /^[1][3-8]\d{9}$/;
+                if (!reg.test(tel)) {
+                    swal("OMG!", "请输入正确的手机号码!", "error");
+                    return false;
+                }
+                var address = $("#J_Address").val();
+                if ($.trim(address) == "") {
+                    swal("OMG!", "请选择省市县!", "error");
+                    return false;
+                }
+                
+                var arr = address.split(" ");
+                var prov = arr[0];
+                var city = arr[1];
+                var town = arr[2];
+
+                var address2 = $("#Address").val();
+                if ($.trim(address) == "") {
+                    swal("OMG!", "详细地址不得为空!", "error");
+                    return false;
+                }
+
+                $.post("/fr/JoinForm", { 
+                    realname: name, 
+                    mobile: tel, 
+                    province: prov,
+                    city: city,
+                    town: town,
+                    address: address2,
+                    mano: "@(ViewBag.MaNo)",
+                }, function(data) {
+                    cansub = true;
+                    if (data == "1") {
+                        swal({
+                            title: "GOOD!", 
+                            text: "提交成功！", 
+                            type: "success",
+                            showCancelButton: false,
+                            confirmButtonText: "确定",
+                            confirmButtonColor: "#108dd8"
+                        },
+                        function(isconfirm){
+                            $("#RealName").val("");
+                            $("#Mobile").val("");
+                            $("#J_Address").val("");
+                            $("#Address").val("");
+                            // $(".prize_num p").html("0");
+                            $(".info").hide();
+                        });
+                    }
+                    if(data == "-1"){
+                        swal("已提交!", "个人信息已经提交过了，请勿重复提交！", "info");
+                    }
+                });
+            });
+        }
+    </script>      
+</body>
+</html>

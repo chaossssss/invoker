@@ -1,0 +1,316 @@
+﻿@{
+    Layout = null;
+    System.Data.DataTable dt = ViewData["ZjList"] as System.Data.DataTable;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>容声集成吊顶第四季全国联动</title>
+	<link rel="stylesheet" type="text/css" href="/css/mrscss/reset.css?t=3">
+	<link rel="stylesheet" type="text/css" href="/css/mrscss/draw.css?t=2">
+	<link rel="stylesheet" type="text/css" href="/css/mrscss/sweetalert.css">
+	<script type="text/javascript" src="/js/mrsjs/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/mrsjs/flexible.js"></script>
+	<script type="text/javascript" src="/js/mrsjs/flexible_css.js"></script>
+	<script type="text/javascript" src="/js/mrsjs/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="/js/mrsjs/jQueryRotate.2.2.js"></script>
+	<script type="text/javascript" src="/js/mrsjs/sweetalert.min.js"></script>
+	<script  src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+	wx.config({
+		//debug: true,
+		appId: '@ViewBag.appid',
+		timestamp: @ViewBag.tt,
+		nonceStr: '@ViewBag.ns',
+		signature:  '@ViewBag.ss',
+		jsApiList: [
+					'checkJsApi',
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage'
+				]
+	});
+
+	// 调用微信API
+	wx.error(function(res){});
+	wx.ready(function () { 
+		var sdata = {
+			title: '容声集成吊顶第四季全国联动！',
+			desc: '年终冲量，厂价直供',
+			link: 'http://nh.chinadd.com/Rs/draw',
+			imgUrl: 'http://nh.chinadd.com/images/mrsimages/share.gif',
+			success: function () {},
+			cancel: function () {}
+		};
+		wx.onMenuShareTimeline(sdata);
+		wx.onMenuShareAppMessage(sdata);
+	});
+	</script>
+    <style>
+        .closeico { width: 20px; height: 20px; line-height: 20px; border-radius: 20px; text-align: center; color: #fff; background: #43cbd2; display: block; position: absolute; font-size: 16px; left: 50%; margin-left: 3.05rem; top: 50px; z-index: 9999;}
+    </style>
+</head>
+<body style="overflow-x:hidden;">
+
+@helper GetPrizeName(int pid)
+{
+    switch(pid)
+    {
+        case 1:
+            @:iphone8一部
+            break;
+        case 2:
+            @:容声冰箱一台
+            break;
+        case 3:
+            @:小米电饭煲一台
+            break;
+        case 4:
+            @:容声反向伞一把
+            break;
+        case 5:
+            @:参与奖
+            break;
+        case 6:
+            @:参与奖
+            break;
+    }
+}
+<div class="wrapper1">
+	<img class="logo" src="/images/mrsimages/rs-pic1.png">
+	<img class="pic" src="/images/mrsimages/draw-pic1.jpg">
+	<a href="/rs/person"><img class="toPerson" src="/images/mrsimages/draw-pic3.png"></a>
+</div>
+<div class="wrapper2">
+	<div class="draw-box">
+		<img id="rotate" class="pic3" src="/images/mrsimages/draw-pic2.png?t=1">
+		<img id="pointer" class="pointer" src="/images/mrsimages/draw-pic1.png">
+		<div class="shade" style="display: none;"></div>
+		<div class="submit-box" style="display: none;">
+			<div class="f-mask"></div>
+            <a href="javascript:;" class="closeico">×</a>
+			<div class="form-box">
+				<div class="f-line">
+					<span class="t-text">姓名：</span>
+					<input id="name" class="t-box" class="text">
+				</div>
+				<div class="f-line">
+					<span class="t-text">电话：</span>
+					<input id="tel" class="t-box" class="text" maxlength="11" onkeyup='this.value=this.value.replace(/\D/gi,"")' pattern="[0-9]*">
+				</div>
+				<div class="f-line">
+					<span class="t-text">验证码：</span>
+					<input id="yzm" class="t-box" class="text">
+				</div>
+				<p class="chance">您还剩<span class="chance-num">0</span>次机会</p>
+				<div id="submitBtn" class="submit-btn">立即抽奖</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper3">
+	<div class="container">
+		<div class="reward-box">
+			<img class="tit" src="/images/mrsimages/draw-pic4.png">
+			<div class="container2">
+				<div class="title">
+					<span class="w30">用户名</span>
+					<span class="w38">奖项</span>
+					<span style="text-align: center;" class="w32">时间</span>
+				</div>
+                @foreach (System.Data.DataRow dr in dt.Rows)
+                {
+				<div class="reward-list">
+					<div class="text w30 username">@dr["NickName"].ToString()</div>
+					<div class="text w36 reward-name">@GetPrizeName(Convert.ToInt32(dr["PrizeID"]))</div>
+					<div class="text w34" style="text-align: center;">@Convert.ToDateTime(dr["AddTime"]).ToString("MM-dd HH:mm")</div>
+				</div>
+                }
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper4">
+	<div class="container">
+		<div class="rule-box">
+			<img class="tit" src="/images/mrsimages/draw-pic5.png">
+			<div class="container2">
+				<p class="condition">抽奖资格：</p>
+				<p class="con-desc">购买指定套餐消费者方可参与全国抽奖（抽奖入口必须填写经销商随机授权码，并输入接收手机号码一致，方可进入）</p>
+				<p style="padding-top: 0.6rem;" class="condition">奖品设置：</p>
+				<img class="reward-pic" src="/images/mrsimages/draw-pic6.jpg">
+				<img class="reward-pic" src="/images/mrsimages/draw-pic7.jpg">
+				<img class="reward-pic" src="/images/mrsimages/draw-pic8.jpg">
+				<img class="reward-pic" src="/images/mrsimages/draw-pic9.jpg">
+				<img class="reward-pic" src="/images/mrsimages/draw-pic10.jpg?t=1">
+<!-- 				<p class="con-desc">意外惊喜  关注官方微信即可领取随机红包，周周有惊喜。</p> -->
+				<p class="con-desc">（活动结束后2周内奖品统一兑换，以容声集成吊顶官方渠道公布中奖信息为准）</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="dialog-box" style="display: none;">
+	<div class="mask"></div>
+	<div class="dialog">
+		<img class="mon" src="/images/mrsimages/draw-pic6.png">
+		<p class="wow">哇塞好厉害！</p>
+		<p class="win">恭喜您抽中特等奖</p>
+		<p class="desc">(价值99元的容声反向伞一把)</p>
+	</div>
+</div>
+<div style=" display:none;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspanid='cnzz_stat_icon_1255362651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1255362651%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script type="text/javascript">
+    $(function () {
+    	var chanceNum = 0;
+        // var rotateStatus = false;
+        var timeOut = function () {
+            $("#rotate").rotate({
+                angle: 0,
+                duration: 10000,
+                animateTo: 2160,
+                callback: function () {
+                    alert('网络超时')
+                }
+            })
+        };
+        $(".f-mask").on("click", function () {
+            $(".submit-box").hide();
+        })
+        $(".closeico").on("click", function () {
+            $(".submit-box").hide();
+        })
+        $("#submitBtn").on("click", function () {
+            $(".submit-box").hide();
+
+
+            var name = $("#name").val();
+            var tel = $("#tel").val();
+            var yzm = $("#yzm").val();
+
+            var data = {
+                mobile: tel,
+                yzm: yzm
+            }
+            $.ajax({
+                url: '/Rs/DoCj',
+                type: 'post',
+                data: data,
+                dataType: 'json',
+                success: function (data) {
+                    // alert(data);
+
+                    if (data.PrizeID > 0) {
+                        var res = parseInt(data.PrizeID);
+                        chanceNum = data.Num;
+                        console.log(res);
+                        startRotate(res);
+                        $(".shade").show();
+                    }
+                    else if (data.PrizeID == '-1') {
+                        swal('OMG', '您的抽奖次数已经用完！', 'warning');
+                    }
+                    else if (data.PrizeID == -9) {
+                        swal('OMG', '手机号或者验证码不匹配', 'warning');
+                    }
+                    else if (data.PrizeID == 0) {
+                        swal('OMG', '一个手机号只能绑定一个订单！', 'error');
+                    }
+                }
+            })
+
+
+        })
+        var rotateFunc = function (awards, angle, text, worth, wow) {
+            // rotateStatus = !rotateStatus;
+            $('#rotate').stopRotate();
+            $("#rotate").rotate({
+                angle: 0,
+                duration: 3000,
+                animateTo: angle + 720,
+                callback: function () {
+                    $(".shade").hide();
+                    $(".dialog-box").show();
+                    $(".wow").text(wow);
+                    $(".win").text(text);
+                    $(".desc").text(worth);
+                    $(".chance-num").text(chanceNum);
+                    // rotateStatus = !rotateStatus;
+                }
+            })
+
+        };
+        $("#pointer").rotate({
+            bind: {
+                click: function () {
+
+                    $(".submit-box").show();
+
+                }
+            }
+        })
+        function startRotate(res) {
+            // var data = [1, 2, 3, 4, 5, 6, 7, 8];
+            // data = data[Math.floor(Math.random() * data.length)];
+            // 特等奖：1
+            // 一等奖：2
+            // 二等奖：3
+            // 三等奖：4
+            // 参与奖：5
+            // 谢谢参与：6
+            switch (res) {
+                case 1:
+                    rotateFunc(1, 135, '恭喜您抽中特等奖', '(IPHONE8一部)', '哇塞好厉害！');
+                    break;
+                case 2:
+                    rotateFunc(2, 315, '恭喜您抽中一等奖', '(容声冰箱一台)', '哇塞好厉害！');
+                    break;
+                case 3:
+                    rotateFunc(3, 0, '恭喜您抽中二等奖', '(小米IH电饭煲一台)', '哇塞好厉害！');
+                    break;
+                case 4:
+                    rotateFunc(4, 45, '恭喜您抽中三等奖', '(容声反向伞一把)', '哇塞好厉害！');
+                    break;
+                case 5:
+                    rotateFunc(5, 270, '恭喜您抽中参与奖', '(精美礼品一份)', '哇塞好厉害！');
+                    break;
+                case 6:
+                    rotateFunc(6, 90,  '恭喜您抽中参与奖', '(精美礼品一份)', '哇塞好厉害！');
+                    break;
+
+                // if (res == 3) { 
+                //     rotateFunc(3, 0, '恭喜您抽中二等奖', '(价值399元的小米IH电饭煲一台)', '哇塞好厉害！') 
+                // } 
+                // if (res == 4) { 
+                //     rotateFunc(4, 45, '恭喜您抽中三等奖', '(价值50元的容声反向伞一把)', '哇塞好厉害！') 
+                // } 
+                // if (res == 6) { 
+                //     rotateFunc(6, 90, '很遗憾你没有中奖', '', '就差一点点！') 
+                // } 
+                // if (res == 1) { 
+                // 	rotateFunc(1, 135, '恭喜您抽中特等奖', '(价值5888元的IPHONE8一部)', '哇塞好厉害！') 
+                // } 
+                // if (res == 3) { 
+                // 	rotateFunc(3, 180, '恭喜您抽中二等奖', '(价值399元的小米IH电饭煲一台)', '哇塞好厉害！') 
+                // } 
+                // if (res == 4) { 
+                // 	rotateFunc(4, 225, '恭喜您抽中三等奖', '(价值50元的容声反向伞一把)', '哇塞好厉害！') 
+                // } 
+                // if (res == 5) { 
+                // 	rotateFunc(5, 270, '恭喜您抽中参与奖', '(经销商提供的精美礼品一份)', '哇塞好厉害！') 
+                // } 
+                // if (res == 2) { 
+                // 	rotateFunc(2, 315, '恭喜您抽中一等奖', '(价值1999元的容声冰箱一台)', '哇塞好厉害！') 
+                // } 
+            }
+        }
+        $(".mask").on("click", function () {
+            $(".dialog-box").hide();
+        })
+    })
+</script>
+</body>
+</html>
