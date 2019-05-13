@@ -1,0 +1,192 @@
+//iscroll
+var myScroll;
+
+function loaded () {
+    myScroll = new IScroll('#shopList', {
+        idicators:{
+            el:document.getElementById("turnDown"),
+        },
+        scrollbars: true,
+        mouseWheel: true,
+        interactiveScrollbars: true,
+        shrinkScrollbars: 'scale',
+        fadeScrollbars: true,
+        onScrollEnd: function(){
+            if(myScroll.maxScrollY >= myScroll.y){
+                myScroll.scrollBy(0,10);
+            }
+        }
+    });
+}
+//js动态绑定,冒泡
+function getPosition(event){
+    var ele = event.currentTarget;
+    console.log(ele);
+    var elelat = event.currentTarget.getAttribute("lat");
+    console.log(elelat);
+}
+
+
+
+
+$("#citySelecter").citySelect({
+    url : "/scripts/city.min.js",
+    prov : null,
+    city : null,
+    dist : null,
+    required : false
+});
+var clickFlag = true;
+$("#turnDown").on("click",function(){
+    if(myScroll.maxScrollY -20 < myScroll.y){
+        myScroll.scrollBy(0,-40,600);
+    }
+
+})
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+	capture: false,
+	passive: false
+} : false);
+function isPassive() {
+    var supportsPassiveOption = false;
+    try {
+        addEventListener("test", null, Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassiveOption = true;
+            }
+        }));
+    } catch(e) {}
+    return supportsPassiveOption;
+}
+ 
+
+        // 百度地图API功能
+        var map = new BMap.Map("map");    // 创建Map实例
+        
+
+        var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+        var top_left_navigation = new BMap.NavigationControl();
+        map.addControl(top_left_control);
+        map.addControl(top_left_navigation);
+
+
+
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return decodeURI(r[2]);
+            }
+            return null;
+        }
+        var shopNameRequest = getQueryString('ShopName');
+        var cityName = getQueryString('city');
+        var ls = window.location.search;
+        if(shopNameRequest != null){
+            var shopList = $("#scroller .shop-list");
+            var lal = $("#scroller .shop-list").eq(0).attr("lal");
+            var sn = $("#scroller .shop-list").eq(0).find("#sn").attr("sn");
+            var sa = $("#scroller .shop-list").eq(0).find("#sa").attr("sa");
+            var st = $("#scroller .shop-list").eq(0).find("#st").attr("st");
+            var lat = lal.split(',')[1];
+            var lng = lal.split(',')[0];
+            var Spoint = new BMap.Point(lng,lat);
+            console.log(Spoint);
+            map.centerAndZoom(Spoint, 18);
+        }else if(cityName) {
+            map.centerAndZoom(cityName, 10);
+        }
+        else {
+            map.centerAndZoom('北京', 5);  // 初始化地图,设置中心点坐标和地图级别
+        }
+
+
+$(document).ready(function(){
+    $("#scroller").on("click",".shop-list",function(){
+        var lal = $(this).attr("lal");
+        var lat = lal.split(',')[1];
+        var lng = lal.split(',')[0];
+        map.centerAndZoom(new BMap.Point(lng,lat), 16);
+    })
+    function createMarker(lalArr,zoom){
+        for(var i = 0;i < lalArr.length;i++){
+            var atPoint = new Object();
+            var marker = new Array();
+            atPoint.Lat = lalArr[i].latitude;
+            atPoint.Lng = lalArr[i].longitude;
+            atPoint.Name = lalArr[i].name;
+            atPoint.Tel = lalArr[i].tel;
+            atPoint.Addr = lalArr[i].addr;
+            var points = new BMap.Point(atPoint.Lng,atPoint.Lat);
+            marker[i] = new BMap.Marker(points); // 创建点
+            map.addOverlay(marker[i]);
+
+            (function(){
+              var sContent = 
+                "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>" + atPoint.Name + "</h4>" + 
+                //"<img style='float:right;margin:4px' id='imgDemo' src='" + atPoint.ShopPhoto + "' width='139' height='104' title='天安门'/>" + 
+                "<p style='margin:0;line-height:1.5;font-size:13px;'>地址：" + atPoint.Addr + "</p>" + 
+                "<p style='margin:0;line-height:1.5;font-size:13px;'>电话：" + atPoint.Tel + "</p>" +
+                "</div>";
+              var infoWindow = new BMap.InfoWindow(sContent);
+              marker[i].addEventListener("click",function(){
+                this.openInfoWindow(infoWindow);
+              })
+
+            })(i);
+        };
+    }
+
+    function getHtmlMsg(){
+        var json = [];
+        var shopList = $("#scroller .shop-list");
+        for(var i = 0;i<shopList.length;i++){
+            var j = {};
+            var lal = shopList.eq(i).attr("lal");
+            var sn = shopList.eq(i).find("#sn").attr("sn");
+            var sa = shopList.eq(i).find("#sa").attr("sa");
+            var st = shopList.eq(i).find("#st").attr("st");
+            var lat = lal.split(',')[1];
+            var lng = lal.split(',')[0];
+            j.latitude = lat;
+            j.longitude = lng;
+            j.name = sn;
+            j.addr = sa;
+            j.tel = st;
+            json.unshift(j);
+        }
+        createMarker(json,11);
+    }
+    getHtmlMsg();
+    $("#citySelect").on("click",function(){
+        var prov = jQuery.trim($("#prov").val());
+        var city = jQuery.trim($("#city").val());
+        console.log(prov);
+        console.log(city);
+        if(prov == ''){
+            swal("请输入省");
+            return false;
+        }else if(city == ''){
+            swal("请输入市");
+            return false;
+        }else{
+            window.location.search="Province="+prov+"&city="+city;
+        }
+    })
+    $("#shopSelect").on("click",function(){
+
+        var shopname = $("#shopName").val();
+        window.location.search="ShopName="+shopname;
+
+        
+    })
+
+
+})
+
+
+
+
+
+
