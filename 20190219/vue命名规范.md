@@ -1,3 +1,12 @@
+---
+title: vue命名规范
+date: 2019-02-19 16:00:31
+sitemap: true
+tags:
+- vue
+categories:
+- vue
+---
 命名
 命名的方法通常有以下几类：
 命名法说明
