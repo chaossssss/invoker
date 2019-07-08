@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+
+    <title></title>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=w5sOG4tivOUCgs6ccDvEsARG5K5dIL2d"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #allmap {
+            height: 100%
+        }
+    </style>
+</head>
+<body>
+    <!-- build:header -->
+
+    <div>
+
+    </div>
+
+    <!-- enbuild -->
+    <input type="button" value="查询'" onclick="a()" />
+    <div id="allmap"></div>
+    <script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap"); // 创建Map实例
+        var point = new BMap.Point(110.317351, 35.613984); //地图原点
+        map.centerAndZoom(point, 5);
+        //map.enableScrollWheelZoom();
+        map.enableScrollWheelZoom(true);
+        //申明一个坐标
+        var point = new BMap.Point(112.573913, 37.859013);
+        //声明点
+        var point1 = new BMap.Point(112.546317, 37.819801);
+        var point2 = new BMap.Point(122.546317, 37.819801);
+
+
+        var marker1 = new BMap.Marker(point1);
+        var marker2 = new BMap.Marker(point2);
+        //画个圆
+        var circle = new BMap.Circle(point, 30000, {
+            strokeColor: "blue",
+            strokeWeight: 2,
+            strokeOpacity: 0.5
+        }); //创建圆
+
+        //加载
+        map.addOverlay(circle);
+        map.addOverlay(marker1);
+        map.addOverlay(marker2);
+
+        function a() {
+
+            map.clearOverlays();
+            var result = BMapLib.GeoUtils.isPointInCircle(point1, circle);
+            map.addOverlay(circle);
+            if (result == true) {
+
+                map.addOverlay(marker1);
+            }
+            var result1 = BMapLib.GeoUtils.isPointInCircle(point2, circle);
+            if (result1 == true) {
+                map.addOverlay(marker2);
+            }
+        }
+    </script>
+    <!-- build:footer -->
+
+    <div>
+
+    </div>
+
+    <!-- enbuild -->
+</body>
+</html>
