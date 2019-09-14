@@ -50,68 +50,6 @@ $(function () {
         mark += random;
         mark %= 8;
 
-        // $.post("/fr/CjForm", {
-        //     mano: "@(ViewBag.MaNo)"
-        // }, function(data) {
-        //     if(data == "0"){
-        //         $(".info").show();
-        //         // $(".prize_num p").html("0");
-        //     }else if(data == "-1"){
-        //         swal({
-        //             title: "OMG!", 
-        //             text: "您的抽奖机会已使用完毕，感谢您的关注!",
-        //             imageUrl: "/images/fr/whale.png",
-        //             showCancelButton: false,
-        //             confirmButtonText: "确定",
-        //             confirmButtonColor: "#108dd8"
-        //         },
-        //         function(isconfirm){
-        //             // $(".prize_num p").html("0");
-        //         });
-        //     }else if(data == "-2"){
-        //         swal({
-        //             title: "OMG!", 
-        //             text: "很抱歉，活动已经结束啦，感谢您的关注!",
-        //             imageUrl: "/images/fr/whale.png",
-        //             showCancelButton: false,
-        //             confirmButtonText: "确定",
-        //             confirmButtonColor: "#108dd8"
-        //         },
-        //         function(isconfirm){
-        //             // $(".prize_num p").html("0");
-        //         });
-        //     }else{
-        //         mark = data ;
-        //         console.log(mark)
-        //         switch (mark) {
-        //             case "1":
-        //                 rotateFn(1, 0, '一等奖：海尔对开门冰箱');
-        //                 break;
-        //             case "2":
-        //                 rotateFn(2, 270, '二等奖：55英寸智能高清电视');
-        //                 break;
-        //             case "3":
-        //                 rotateFn(3, 225, '三等奖：时尚拎包+高端炒锅一个');
-        //                 break;
-        //             case "4":
-        //                 rotateFn(4, 315, '四等奖：精美刀具+高端炒锅一个');
-        //                 break;
-        //             case "5":
-        //                 rotateFn(1, 135, '一等奖：海尔对开门冰箱');
-        //                 break;
-        //             case "6":
-        //                 rotateFn(2, 90, '二等奖：55英寸智能高清电视');
-        //                 break;
-        //             case "7":
-        //                 rotateFn(3, 45, '三等奖：时尚拎包+高端炒锅一个');
-        //                 break;
-        //             case "8":
-        //                 rotateFn(4, 180, '四等奖：精美刀具+高端炒锅一个');
-        //                 break;
-        //         }
-        //     } 
-        // }) 
-
 
         //默认先转4圈
         random += 32;//圈数 * 奖品总数
@@ -148,57 +86,6 @@ $(function () {
     });
 });
 
-
-
-
-
-
-
-
-
-// function prizeImg(x){
-//     $("#lucky_img img").attr("src","/images/fr/prize0"+ x +".png?v=002");
-//     $(".lucky").show();
-// }
-
-// var rotateTimeOut = function (){
-//     $('#rotate').rotate({
-//         angle:0,
-//         animateTo:2160,
-//         duration:8000,
-//         callback:function (){
-//             alert('网络超时，请检查您的网络设置！');
-//         }
-//     });
-// };
-// var bRotate = false;
-// var rotateFn = function (awards, angles, txt){
-//     bRotate = !bRotate;
-//     $('#rotate').stopRotate();
-//     $('#rotate').rotate({
-//         angle:0,
-//         animateTo:angles+2160,
-//         duration:5000,
-//         callback:function (){
-
-//             switch (awards){
-//                 case 1:
-//                     prizeImg(1);
-//                 break;
-//                 case 2:
-//                     prizeImg(2);
-//                 break;
-//                 case 3:
-//                     prizeImg(3);
-//                 break;
-//                 case 4:
-//                     prizeImg(4);
-//                 break;
-//             }
-//             bRotate = !bRotate;
-//         }
-//     })
-// };
 
 $('.pointer').click(function (){
     //function Luckdraw(){
