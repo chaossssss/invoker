@@ -1,0 +1,4 @@
+ES6中引入了第6种原始类型：Symbol
+Symbol函数接受一个可选参数，可以添加一段文本描述即将创建的Symbol，这段属描述不可用于属性访问，但是建议每次创建Symbol时都添加一段描述，便于阅读代码和调试Symbol程序。
+
+Symbol是原始值，且ES6同时扩展了typeof操作符，支持返回“Symbol”，所以可以用typeof来检测变量是否为Symbol类型
