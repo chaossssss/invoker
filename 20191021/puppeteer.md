@@ -1,0 +1,2 @@
+puppeteer是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景
+还可以截图和生成pdf，自动化表单提交
