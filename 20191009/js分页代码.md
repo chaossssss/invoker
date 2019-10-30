@@ -52,7 +52,7 @@ function getPageNavi(pageNo, totalPageNo, methodNm) {
 
 function getHuiPageNavi(pageNo, totalPageNo,totalCnt, methodNm) {
 
-    $(".pageTotalCntID").text("共 " + totalCnt + " 条")
+    $("#pageTotalCntID").text("共 " + totalCnt + " 条")
 
     var navi = "";
     if (totalPageNo == 0) {
