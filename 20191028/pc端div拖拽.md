@@ -24,4 +24,36 @@ $(function () {
     }
 
 });
+
+
+
+js版本
+    window.onload=function(){
+        let drag=document.getElementById('box');
+        drag.onmousedown=function(e){
+            let e = e || window.event;
+            let diffX=e.clientX-drag.offsetLeft;
+            let diffY=e.clientY-drag.offsetTop;
+            drag.onmousemove=function(e){
+                let left=e.clientX-diffX;
+                let top=e.clientY-diffY;
+                if(left<0){
+                    left=0;
+                }else if(left>window.innerWidth-drag.offsetWidth){
+                    left=window.innerWidth-drag.offsetWidth;
+                }
+                if(top<0){
+                    top=0;
+                }else if(top>window.innerHeight-drag.offsetHeight){
+                    top=window.innerHeight-drag.offsetHeight
+                }
+                drag.style.left=left+'px';
+                drag.style.top=top+'px';
+            }
+            drag.onmouseup=function(e){
+                this.onmousemove=null;
+                this.onmouseup=null;
+            }
+        }
+    }
 ```
