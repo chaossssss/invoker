@@ -50,7 +50,7 @@ var chooseImageFun = (t, url, type, modifydata) => {
     })
   }
 
-  var chooseImages = function (t,type,picsArr) {
+  var chooseImages = function (t,type,picsArr,picsArrBack) {
     let that = t
     // 选择图片
     wx.chooseImage({
@@ -77,14 +77,16 @@ var chooseImageFun = (t, url, type, modifydata) => {
               console.log('图片上传返回:',res.data)
               var res_Json = JSON.parse(res.data);
               if(res_Json.code == "OK"){
-
+                that.setData({
+                  [picsArrBack]: that.data[picsArrBack].concat(res_Json.data)
+                });
               }else{
                 wx.showToast({
                   title: res_Json.context,
                   icon: 'none',
                   duration: 5000,
                   success(){
-      
+                    
                   }
                 })
               }
@@ -104,21 +106,25 @@ var chooseImageFun = (t, url, type, modifydata) => {
     })
   }
   // 图片预览
-  var previewImage = function (e,t,picsArr) {
+  var previewImage = function (e,t,picsArrBack) {
     let that = t
     //console.log(this.data.images);
     var current = e.target.dataset.src
     wx.previewImage({
       current: current,
-      urls: that.data[picsArr]
+      urls: that.data[picsArrBack]
     })
   }
-  var deletePics = function (e,t,picsArr) {
+  var deletePics = function (e,t,picsArr,picsArrBack) {
     let that = t
-    var index = e.currentTarget.dataset.index; var images = that.data[picsArr];
+    var index = e.currentTarget.dataset.index;
+    var images = that.data[picsArr];
+    var imagesBack = that.data[picsArrBack]
     images.splice(index, 1);
+    imagesBack.splice(index, 1);
     that.setData({
-      [picsArr]: images
+      [picsArr]: images,
+      [picsArrBack]: imagesBack
     });
   }
 
