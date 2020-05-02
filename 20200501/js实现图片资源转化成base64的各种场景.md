@@ -1,0 +1,1 @@
+[js实现图片资源转化成base64的各种场景](https://www.cnblogs.com/zhangdiIT/p/7895903.html)
