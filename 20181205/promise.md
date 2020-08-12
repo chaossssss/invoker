@@ -1,3 +1,7 @@
+优点：解决回调地狱，对异步任务写法更标准化与简洁化。
+缺点：首先无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段。
+
+
 var promise1 = new Promise(function(resolve,reject){
 	setTimeout(function(){
 	resolve('foo')
