@@ -1,0 +1,1 @@
+[BufferGeometry和Geometry有什么不同](http://www.yanhuangxueyuan.com/doc/Three.js/BufferGeometryGeometry.html)
