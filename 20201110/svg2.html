@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+
+    <title></title>
+    <style>
+        .con {
+            width: 500px;
+            height: 600px;
+            position: relative;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            display: block;
+            position: absolute;
+        }
+
+        svg .line1 {
+            stroke-dasharray: 833;
+            stroke-dashoffset: 40;
+            animation: dash 18s linear infinite;
+        }
+
+        svg .line2 {
+            stroke-dasharray: 813;
+            stroke-dashoffset: 813;
+            animation: dash2 18s linear infinite;
+        }
+
+        @keyframes dash {
+            from {
+                stroke-dashoffset: 833;
+            }
+
+            to {
+                stroke-dashoffset: 40;
+            }
+        }
+
+        @keyframes dash2 {
+            from {
+                stroke-dashoffset: 713;
+            }
+
+            to {
+                stroke-dashoffset: -40;
+            }
+        }
+        
+        .light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            offset-path: path("M134.3,250.6c0,0-78.5,348,163.3,379.6c241.8,31.6,232.6-209.2,232.6-209.2");
+            offset-distance: 0%;
+
+            animation: light 2s linear alternate infinite;
+        }
+
+        @keyframes light {
+            from {
+                offset-distance: 0%;
+            }
+
+            to {
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+<html>
+
+<body>
+    <!-- build:header -->
+
+    <div class="con">
+
+        <svg width="500px" height="600px" version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 595.3 841.9"
+            enable-background="new 0 0 595.3 841.9" xml:space="preserve">
+            <path class="path" fill="transparent" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M134.3,250.6c0,0-78.5,348,163.3,379.6
+       c241.8,31.6,232.6-209.2,232.6-209.2" />
+            <path class="line2" fill="transparent" stroke="#FF2851" stroke-width="4" stroke-miterlimit="10" d="M134.3,250.6c0,0-78.5,348,163.3,379.6
+       c241.8,31.6,232.6-209.2,232.6-209.2" />
+            <path class="line1" fill="transparent" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M134.3,250.6c0,0-78.5,348,163.3,379.6
+       c241.8,31.6,232.6-209.2,232.6-209.2" />
+        </svg>
+        <img class="light" src="images/green_line.png">
+    </div>
+    <script>
+        var obj = document.querySelector("path");
+        var length = obj.getTotalLength();
+        console.log(length); // 377.0433
+    </script>
+</body>
+
+</html>
