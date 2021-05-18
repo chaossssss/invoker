@@ -1,0 +1,3 @@
+[three.js：物体高亮显示/物体发光显示](https://blog.csdn.net/qq_36880027/article/details/109721922)
+[threeJS鼠标单击模型边缘高亮](https://blog.csdn.net/mmiaoChong/article/details/113751254?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161483475816780269831236%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161483475816780269831236&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-11-113751254.first_rank_v2_pc_rank_v29&utm_term=threejs%E6%A8%A1%E5%9E%8B%E5%8F%91%E5%85%89)
+[threejs单击选中模型高亮显示/选中模型发光](https://blog.csdn.net/qq_15023917/article/details/114366480)
