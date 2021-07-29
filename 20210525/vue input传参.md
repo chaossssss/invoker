@@ -1,0 +1,1 @@
+@input="searchMethod($event.target.value,1)"
