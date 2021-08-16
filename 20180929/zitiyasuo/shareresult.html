@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/visit-result.css">
+
+    <title></title>
+
+</head>
+<body>
+
+    <div class="vres-box">
+        <img class="res-logo" src="/images/zt-logo.png">
+        <div id="content" class="res-box">
+            <script id="test" type="text/html">
+                <div class="nickname">{{resName}}</div>
+					<div class="res-tip">听见家的声音</div>
+					<div class="score-box">
+						<div class="s1">{{s1}}</div>
+						<div class="s2">{{s2}}</div>
+						<div class="s3">{{s3}}</div>
+						<div class="lw">得</div>
+						<div class="rw">分</div>
+					</div>
+					<img class="res-tpic" src="{{resImg}}">
+					<img class="res-pic" src="/images/res-pic1.jpg">
+					<div class="res-common">家的声音传进耳朵<br/>爱的回音传到心里<br/>陪伴没有时限<br/>守护无关距离<br/>中秋佳节 静侯“家”音</div>
+				</script>
+        </div>
+        <a class="visit-a" href="">我也要玩</a>
+    </div>
+    <script type="text/javascript">
+        var score = 80;
+        var resNick = '未命名';
+        var resList = [{
+                resScore: 0,
+                s1: '',
+                s2: '',
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 10,
+                s1: '',
+                s2: 1,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 20,
+                s1: '',
+                s2: 2,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 30,
+                s1: '',
+                s2: 3,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 40,
+                s1: '',
+                s2: 4,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 50,
+                s1: '',
+                s2: 5,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary50s.png'
+            },
+            {
+                resScore: 60,
+                s1: '',
+                s2: 6,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary60s.png'
+            },
+            {
+                resScore: 70,
+                s1: '',
+                s2: 7,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary70s.png'
+            },
+            {
+                resScore: 80,
+                s1: '',
+                s2: 8,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary80s.png'
+            },
+            {
+                resScore: 90,
+                s1: '',
+                s2: 9,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary90s.png'
+            },
+            {
+                resScore: 100,
+                s1: 1,
+                s2: 0,
+                s3: 0,
+                resName: resNick,
+                resImg: '/images/summary100s.png'
+            }
+        ]
+        for (var resIndex in resList) {
+            // console.log(resIndex,resList[resIndex]);
+            if (resList[resIndex].resScore == score) {
+                console.log(resList[resIndex].resScore);
+                var html = template('test', resList[resIndex]);
+                document.getElementById('content').innerHTML = html;
+            }
+        }
+    </script>
+</body>
+</html>

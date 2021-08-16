@@ -1,0 +1,1 @@
+<child :prop="value"></child>

@@ -1,0 +1,2 @@
+<input id="mobile" class="input-box tel" type="text" autocomplete="off" value="请输入手机号" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" maxlength="11" onBlur="if(!value){value=defaultValue;this.style.color='#999'}">
+<input id="password" class="input-box password" value="请输入密码" autocomplete="off" onFocus="if(value==defaultValue){value='';this.style.color='#000';this.type='password'}" onBlur="if(!value){value=defaultValue;this.style.color='#999';this.type='text'}">

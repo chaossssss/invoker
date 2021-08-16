@@ -1,0 +1,1 @@
+[vue-property-decorator用法](https://www.jianshu.com/p/d8ed3aa76e9b)

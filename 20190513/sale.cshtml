@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @Html.Action("SeoModel","PartialView",new { name = "SeoPart", id = 3})
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
+    <link rel="stylesheet" type="text/css" href="/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="/css/shop.css" />
+    <link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cityselect.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=w5sOG4tivOUCgs6ccDvEsARG5K5dIL2d" type="text/javascript"></script>
+    <script type="text/javascript" src="/scripts/iscroll.js"></script>
+    <script type="text/javascript" src="/scripts/sweetalert.min.js"></script>
+</head>
+<body onload="loaded()">
+@Html.Partial("head")
+    <div class="wrapper1"></div>
+    <div class="wrapper2">
+        <div class="wp2-container clearfix">
+            <div class="cityform">
+                <form id="citySelecter">
+                    <span class="cspan">选择您想查看的省市：</span>
+                    <select id="prov" name="prov" class="prov selectbox"></select>
+                    <select id="city" name="city" class="city selectbox"></select>
+                    <div id="citySelect" class="submit-btn">确认</div>
+                </form>
+            </div>
+            <div class="shopform">
+                <input id="shopName" class="sinput" type="text" placeholder="请输入门店名称" />
+                <div id="shopSelect" class="submit-btn">搜索</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper3">
+        <div class="wp3-container clearfix">
+            <div class="shop-box">
+                <div id="shopList">
+                    <div id="scroller">
+                        @foreach (var item in Model){
+                            <div class="shop-list" lal="@item.Gps">
+                                <p id="sn" sn="@item.ShopName" class="shop-name">@item.ShopName</p>
+                                <p id="sa" sa="@item.Address" class="shop-addr">地址：@item.Address</p>
+                                <p id="st" st="@item.Tel" class="shop-tel">电话：@item.Tel</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="turnDown" class="turn-down">
+                    <span class="icon-down"></span>
+                </div>
+            </div>
+            <div id="map" class="map-box"></div>
+        </div>
+    </div>
+@Html.Partial("foot")
+<script type="text/javascript">
+    $(function(){
+        $(".nav li:eq(" + 5 +")").addClass("on");
+    })
+</script>
+<script type="text/javascript" src="/scripts/sale.js"></script>
+@Html.Action("StatusCodeModel","PartialView",new { name = "StatusCode"})
+</body>
+</html>

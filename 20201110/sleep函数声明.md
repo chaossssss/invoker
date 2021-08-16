@@ -1,0 +1,1 @@
+[javascript 使用sleep函数的常见方法详解](https://www.jb51.net/article/185441.htm)

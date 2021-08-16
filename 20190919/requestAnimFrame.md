@@ -1,0 +1,3 @@
+用js执行动画
+需要像setInterval一样，取消有相关方法
+cancelAnimFrame

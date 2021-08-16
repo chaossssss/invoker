@@ -1,0 +1,1 @@
+[vue.js+video.js+videojs-contrib-hls支持PC端播放m3u8格式的视频](https://www.cnblogs.com/xk-one/p/9243323.html)

@@ -1,0 +1,23 @@
+// @font-face {font-family: 'shiyuan';
+//   src: url('//at.alicdn.com/t/uhrpvn87n45cdi.eot'); /* IE9*/
+//   src: url('//at.alicdn.com/t/uhrpvn87n45cdi.eot?#iefix') format('embedded-opentype'),
+//   url('//at.alicdn.com/t/uhrpvn87n45cdi.woff ') format('woff'),
+//   url('//at.alicdn.com/t/uhrpvn87n45cdi.ttf ') format('truetype'),
+//   url('//at.alicdn.com/t/uhrpvn87n45cdi.svg#NotoSansHans-DemiLight ') format('svg');
+// }
+
+@font-face {font-family: 'shiyuan';
+  src: url('../fonts/systttf.eot?font-spider'); /* IE9*/
+  src: url('../fonts/systttf.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/systttf.woff ') format('woff'),
+  url('../fonts/systttf.ttf ') format('truetype'),
+  url('../fonts/systttf.svg#NotoSansHans-DemiLight ') format('svg');
+}
+
+ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+     margin: 0;
+     padding: 0;
+     font-family: 'shiyuan';
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
+     -webkit-tap-highlight-color: transparent;
+ }

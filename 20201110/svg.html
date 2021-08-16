@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+  @keyframes lineMove {
+    0% {
+      stroke-dasharray: 0, 102;
+    }
+    100% {
+      stroke-dasharray: 102, 102;
+    }
+  }
+  .line {
+    animation: lineMove 3s ease-out infinite;
+  }
+</style>
+<body>
+  <div style="width: 300px;height: 300px;">
+
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.77 76.47">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: none;
+            stroke: #000;
+            stroke-miterlimit: 10;
+          }
+        </style>
+      </defs>
+      <title>Untitled-1</title>
+      <path class="cls-1 line" d="M23.5,29.5v49c.2,1.62,2.17,15.59,15,23a31.27,31.27,0,0,0,23,3"
+        transform="translate(-23 -29.5)" />
+    </svg>
+  </div>
+  <script>
+    var obj = document.querySelector("path");
+    var length = obj.getTotalLength();
+    console.log(length); // 377.0433
+  </script>
+</body>
+
+</html>

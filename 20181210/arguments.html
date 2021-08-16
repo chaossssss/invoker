@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+console.log(typeof arguments);    
+// arguments 对象只能在函数内使用
+function test(a){
+    console.log(a,arguments);
+    console.log(arguments[0],arguments[1]);
+    console.log(typeof arguments[0]);
+    var args = [].slice.call(arguments);
+    console.log(args)
+}
+test(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+component: resolve => require(['./page/linkParamsQuestion.vue'], resolve)

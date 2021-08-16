@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+
+    <title></title>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/echarts.js"></script>
+    <style type="text/css">
+        .centerItem {
+            width: 856px;
+            height: 640px;
+            /* background-color: lightskyblue; */
+            border: 1px solid #ccc;
+            margin: 110px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- build:header -->
+
+    <div>
+
+    </div>
+
+    <!-- enbuild -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="zxBox" class="centerItem"></div>
+    <div id="map" style="width: 505px;height: 530px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+        // 曲线图start
+        // 基于准备好的dom，初始化echarts实例
+        var zxBoxEchart = echarts.init(document.getElementById('zxBox'));
+        // 指定相关的配置项和数据
+        var zxBoxOption = {
+            // 图例
+            legend: {
+                data: ['吃饺子', '吃面', '吃饭'],
+                icon: 'rect',
+                top: 22,
+                right: 24,
+                itemGap: 15,
+                itemWidth: 10,
+                itemHeight: 10,
+                textStyle: {
+                    // padding: [0, 0, 0, 5],
+                    color: 'rgba(0,0,0,0.87)'
+                }
+            },
+            //鼠标滑过展示数据
+            // tooltip: {
+            //     trigger: 'item',
+            //     backgroundColor: 'rgba(0,0,0,.3)',
+            //     textStyle: {
+            //         color: 'rgb(255,255,255)'
+            //     },
+            // },
+            color: ['#289df5', '#fbc01b', '#ff5050'],
+            grid: {
+                left: 24,
+                right: '6%',
+                bottom: '30',
+                containLabel: true
+            },
+            // X轴样式
+            xAxis: {
+                type: 'category',
+                /*
+                    // axisLine坐标轴轴线相关设置:
+                    axisLine:{
+                        show: false, // 不显示x轴
+                        symbol:[ default: 'none' ], // 可以是字符串，表示两端使用同样的箭头；或者长度为 2 的字符串数组，分别表示两端的箭头。默认不显示箭头，即 'none'。两端都显示箭头可以设置为 'arrow'，只在末端显示箭头可以设置为 ['none', 'arrow']。
+                        // axisLine坐标轴轴线样式设置
+                        lineStyle:{
+                            color：'#333', // 坐标轴轴线颜色设置
+                            width:1, // 坐标轴线线宽。
+                        }
+                    },
+                    axisTick:{} // 坐标轴刻度相关设置。
+                    ***********************************************data[i] // 类目数据*****************************************************************
+                    data[i] // 类目数据，在类目轴（type: 'category'）中有效。如果没有设置 type，但是设置了 axis.data，则认为 type 是 'category'。使用案例如下
+                    // 所有类目名称列表
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    // 每一项也可以是具体的配置项，此时取配置项中的 `value` 为类目名
+                    data: [{
+                        value: '周一',
+                        // 突出周一
+                        textStyle: {
+                            fontSize: 20,
+                            color: 'red'
+                        }
+                    }, '周二', '周三', '周四', '周五', '周六', '周日']
+                    *************************************************splitLine****************************************************************************
+                    splitLine:{}//坐标轴在 grid 区域中的分隔线。
+                    splitLine:{
+                        lineStyle:{color: ['#aaa', '#ddd']}
+                    }
+                */
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    length: 0 // 刻度线的长度
+                },
+                axisLabel: {
+                    interval: 0, // 坐标轴刻度标签的显示间隔，在类目轴中有效。
+                    textStyle: {
+                        color: '#00c5d7'
+                    }
+                },
+                name: '(时)',
+                nameTextStyle: {
+                    padding: [24, 0, 0, 0],
+                    color: '#00c5d7'
+                },
+                nameGap: 0,
+                data: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '20', '23']
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    length: 0 // 刻度线的长度
+                },
+                splitLine: {
+                    lineStyle: {
+                        // color: ["#051d5f"],
+                        color: ['#094386'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#a3a4b2'
+                    }
+                }
+            },
+            series: [{
+                name: '吃饺子',
+                type: 'line',
+                symbol: 'circle', // 拐点类型
+                smooth: true, // 当为true时，就是光滑的曲线（默认为true）；当为false，就是折线不是曲线的了，那这个设为true，下面的（吃饭）数据中设置smooth为false，这个就不是光滑的曲线了。
+                symbolSize: 3, // 拐点圆的大小
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [{
+                                    offset: 0,
+                                    color: 'red'
+                                },
+                                {
+                                    offset: 0.5,
+                                    color: 'pink'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#ddd'
+                                }
+                            ]
+                        )
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#0bb6db', // 折线条的颜色
+                        borderColor: '#0bb6db', // 拐点边框颜色
+                    }
+                },
+                data: ['162', '192', '140', '182', '162', '209', '186', '178', '230', '196', '219', '234', '256', '201', '172', '182', '192', '168', '176', '189', '167', '174', '152', '162', '182', '162']
+            }, {
+                name: '吃面',
+                type: 'line',
+                symbol: 'circle', // 拐点类型
+                smooth: true,
+                symbolSize: 3, // 拐点圆的大小
+                itemStyle: {
+                    normal: {
+                        color: '#fbc016', // 折线条的颜色
+                        borderColor: '#fbc016', // 拐点边框颜色
+                    }
+                },
+                data: ['142', '152', '120', '152', '192', '179', '146', '158', '150', '126', '179', '204', '186', '177', '192', '182', '162', '178', '240', '209', '187', '164', '192', '182', '152', '92']
+            }, {
+                name: '吃饭',
+                type: 'line',
+                symbol: 'circle', // 拐点类型
+                smooth: false,
+                symbolSize: 3, // 拐点圆的大小
+                itemStyle: {
+                    normal: {
+                        color: '#ff5050', // 折线条的颜色
+                        borderColor: '#ff5050', // 拐点边框颜色
+                    }
+                },
+                data: ['92', '72', '80', '92', '60', '89', '82', '68', '98', '86', '79', '84', '76', '87', '62', '72', '82', '98', '86', '79', '87', '74', '82', '62', '82', '62']
+            }]
+        };
+        // 使用制定的配置项和数据显示图表
+        zxBoxEchart.setOption(zxBoxOption);
+        // echart图表自适应
+        window.addEventListener("resize", function() {
+            zxBoxEchart.resize();
+        });
+        // 曲线图end
+
+
+
+        // 地图start
+        var myChart = echarts.init(document.getElementById('map'));
+        var geoCoordMap = {
+            "南湖区": [120.789953, 30.710652],
+            "秀洲区": [120.720431, 30.763323]
+        }
+        var locValue = [{
+                name: "南湖区",
+                value: "100"
+            },
+            {
+                name: "秀洲区",
+                value: "80"
+            }
+        ]
+        var convertData = function(geoCoordMap, data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value)
+                    });
+                }
+            }
+            return res;
+        };
+        myChart.showLoading();
+        $.get('/js/jiaxing.json', function(geoJson) {
+            myChart.hideLoading();
+            echarts.registerMap('嘉兴', geoJson);
+
+            myChart.setOption(option = {
+                visualMap: {
+                    min: 0,
+                    max: 500,
+                    show: false,
+                    splitNumber: 5,
+                    inRange: {
+                        color: ['#d94e5d', '#eac736', '#50a3ba'].reverse()
+                    },
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                geo: {
+                    map: '嘉兴',
+                    label: {
+                        normal: {
+                            show: true,
+                            color: '#fff'
+                        },
+                        emphasis: {
+                            show: true,
+                            color: '#fff'
+                        }
+                    },
+                    roam: false,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#40458e',
+                            borderColor: '#6367ad',
+                            borderWidth: 1.5
+                        },
+                        emphasis: {
+                            areaColor: '#40458e'
+                        }
+                    },
+                    "left": 0,
+                    "right": 0,
+                    "top": 0,
+                    "bottom": 0
+                },
+                series: [{
+                        name: 'pm2.5',
+                        type: 'effectScatter',
+                        coordinateSystem: 'geo',
+                        data: convertData(geoCoordMap, locValue).slice(0, 4),
+                        symbolSize: 12,
+                        label: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        itemStyle: {
+                            emphasis: {
+                                borderColor: '#fff',
+                                borderWidth: 1
+                            }
+                        }
+                    },
+                    {
+                        name: 'pm2.5',
+                        type: 'scatter',
+                        coordinateSystem: 'geo',
+                        data: convertData(geoCoordMap, locValue).slice(4, 8),
+                        symbolSize: 12,
+                        label: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        itemStyle: {
+                            emphasis: {
+                                borderColor: '#fff',
+                                borderWidth: 1
+                            }
+                        }
+                    },
+                ]
+            });
+        });
+        // 地图end
+    </script>
+    <!-- build:footer -->
+
+    <div>
+
+    </div>
+
+    <!-- enbuild -->
+</body>
+</html>

@@ -1,0 +1,2 @@
+情景：embed外层div中click事件失效
+解决方法：把click事件换成mousedown

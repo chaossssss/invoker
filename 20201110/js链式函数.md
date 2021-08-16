@@ -1,0 +1,1 @@
+[JavaScript链式调用原理与实现方法详解](https://www.jb51.net/article/186671.htm)

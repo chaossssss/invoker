@@ -1,0 +1,1 @@
+<button v-on:click="click($event, 233)">click me</button>
