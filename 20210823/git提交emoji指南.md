@@ -1,0 +1,1 @@
+[Git commit 规范以及 emoji 列表](https://www.jianshu.com/p/dbc1c27acad2?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
