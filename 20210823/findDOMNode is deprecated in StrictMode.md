@@ -1,0 +1,1 @@
+在 src/index.js 中把`<React.StrictMode>`标签删除
