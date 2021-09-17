@@ -1,0 +1,1 @@
+[vue-router 各个属性的作用及用法](https://blog.csdn.net/sinat_41882906/article/details/84847041)
