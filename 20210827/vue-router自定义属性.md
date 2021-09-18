@@ -1,0 +1,1 @@
+[Vue vue-router中必不可少的redirect，meta和hidden三个属性](https://blog.csdn.net/weixin_43900414/article/details/110188544?utm_term=vue%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AEhidden&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-1-110188544&spm=3001.4430)
