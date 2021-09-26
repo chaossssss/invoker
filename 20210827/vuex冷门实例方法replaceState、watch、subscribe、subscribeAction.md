@@ -1,0 +1,1 @@
+[vuex冷门实例方法replaceState、watch、subscribe、subscribeAction](https://www.jianshu.com/p/8ac8a2074664)
