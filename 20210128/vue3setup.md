@@ -206,3 +206,52 @@ export default {
     console.log(context.emit)
   }
 }
+
+
+// 渲染函数
+import { h, ref, reactive } from 'vue'
+export default {
+  setup() {
+    const readersNumber = ref(0)
+    const book = reactive({ title: 'Vue 3 Guide' })
+    return () => h('div', [readersNumber.value, book.title])
+  }
+}
+
+
+
+<template>
+  <MyMarker />
+</template>
+<script>
+  import { provide } from 'vue'
+  import MyMarker from './MyMarker.vue'
+
+  export default {
+    components: {
+      MyMarker
+    },
+    setup(){
+      provide('location','North Pole')
+      provide('getlocation', {
+        longitude: 90,
+        latitude: 135
+      })
+    }
+  }
+</script>
+
+
+<script>
+import { inject } from 'vue'
+export default {
+  setup() {
+    const userLocation = inject('location', 'The Universe')
+    const userGeolocation = inject('geolocation')
+    return {
+      userLocation,
+      userGeoLocation
+    }
+  }
+}
+</script>
