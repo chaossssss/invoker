@@ -105,3 +105,46 @@ export default {
     }
   }
 };
+
+4.
+
+export function VueDebounce(func, wait = 200, immediate = true) {
+    let timeout = null;  // 定时器
+    return function () {
+        let that = this, // this对象
+            args = arguments; // 参数
+        if (timeout) clearTimeout(timeout);
+        if (immediate === true) { // 立即执行
+            var callNow = !timeout;
+            timeout = setTimeout(() => {
+                timeout = null;
+            }, wait)
+            if (callNow) {
+                // func.apply(that, args); // 普通用法
+                that[func](...args); // vue用法
+            }
+        }
+        else { // 非立即执行
+            timeout = setTimeout(() => {
+                // func.apply(this, args); // 普通用法
+                that[func](...args); // vue用法
+            }, wait);
+        }
+    }
+
+methods: {
+    /**
+     * 点击事件 函数防抖
+     * 用法：<el-button @click="debounceHandel">点击测试</el-button>
+     */
+    debounceHandel: VueDebounce("handlerFunc"),
+ 
+    /**
+     * 点击事件：真正执行的函数
+     */
+    handlerFunc(type) {
+      console.log("测试防抖事件");
+      this.$emit("click","这是参数"); // 如果用普通用法，则这里会找不到$emit，因为this还往上继承了vue的对象
+    },
+  }
+
