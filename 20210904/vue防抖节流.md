@@ -1,3 +1,7 @@
+[vue 中使用防抖函数组件](https://blog.csdn.net/userkang/article/details/90144101)
+别使用箭头函数
+
+
 1.
 export default {
     debounce(fn, delay = 300) {   //默认300毫秒
