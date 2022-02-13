@@ -1,0 +1,1 @@
+[Three.js删除模型对象(.remove()和·dispose()方法)](https://blog.csdn.net/u014291990/article/details/103045002)
