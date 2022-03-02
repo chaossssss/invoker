@@ -53,9 +53,13 @@ export default {
       console.log('The new counter value is: ' + this.counter)
     }
   }
+  <!-- 监听两个 -->
+  watch([myBrand, site],([currentB, preB],[currentS, preS]) => {
+    console.log("现在的值"+currentS+"之前的值"+preS)
+  },{})
 }
 ```
-
+将第一个参数设置成数组，这个数组的每一项都会被监听到。
 
 ```
 import { featchUserRepositories } from '@/api/repositories'
