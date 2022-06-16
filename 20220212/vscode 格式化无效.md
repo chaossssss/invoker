@@ -1,0 +1,2 @@
+"editor.formatOnType": true, 
+"editor.formatOnSave": true 
