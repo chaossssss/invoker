@@ -1,0 +1,1 @@
+[Vue报错Error in mounted hook: “far ＜= 0“](https://blog.csdn.net/weixin_44679078/article/details/109241274)
