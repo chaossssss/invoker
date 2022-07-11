@@ -1,0 +1,1 @@
+[前端播放第三方外链视频报403 forbidden的原因及解决方案](https://blog.csdn.net/Boale_H/article/details/120288101)
