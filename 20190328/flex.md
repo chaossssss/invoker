@@ -1,10 +1,11 @@
+父元素
 flex-direction(决定主轴方向)
 flex-wrap(换行)
 flex-flow(上面两个的简写形式)
 flex-content(对齐方式)
 align-items(在交叉轴上如何对齐)
 align-content(多根轴线的对齐方式)
-
+子元素
 项目的属性
 order(排列顺序)
 flex-grow(放大比例)
