@@ -1,0 +1,1 @@
+[vite环境下图片动态引入](https://www.jianshu.com/p/522262876125)
