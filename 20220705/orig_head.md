@@ -1,0 +1,1 @@
+[git拉取代码报错update_ref failed for ref ‘ORIG_HEAD‘:cannot lock ref ‘ORIG_HEAD‘](https://blog.csdn.net/Heaven_has_a_way/article/details/112212499)
