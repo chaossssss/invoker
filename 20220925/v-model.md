@@ -1,0 +1,1 @@
+v-model 本质 把value当作prop，同时监听input
