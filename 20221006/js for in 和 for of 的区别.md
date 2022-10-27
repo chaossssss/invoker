@@ -40,3 +40,7 @@ for of 遍历值
 
 
 [js中的for in 和 for of 的区别](https://blog.csdn.net/m0_37686205/article/details/89162049)
+
+
+
+for of 跟forEach差不多
