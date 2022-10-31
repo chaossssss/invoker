@@ -1,0 +1,1 @@
+添加属性 check-strictly
