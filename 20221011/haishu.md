@@ -15,6 +15,54 @@ const { page, getParams, tableData, loading, conditionsModel, getTableData } = u
 
 
 Crud 需要自定义配置
+
+const { page, tableData, loading, conditionsModel, conditions, getTableData } = useQuery({
+  ...crud,
+  query: params => {
+		console.log(params)
+		let newParams = JSON.parse(JSON.stringify(params))
+		newParams.conditions = []
+		let villageCode = {
+			isValid: true,
+			key: "villageCode",
+			operation: "=",
+			prefixion: "",
+			value: props.villageCode
+		}
+		let townCode = {
+			isValid: true,
+			key: "townCode",
+			operation: "=",
+			prefixion: "",
+			value: props.townCode
+		}
+		if(conditionsModel.createTime) {
+			let startTime = {
+				isValid: true,
+				key: "createStartTime",
+				operation: ">=",
+				prefixion: "",
+				value: conditionsModel.createTime[0]
+			}
+			let endTime = {
+				isValid: true,
+				key: 'createEndTime',
+				operation: "<=",
+				prefixion: "",
+				value:conditionsModel.createTime[1]
+			}
+			newParams.conditions.push(startTime, endTime);
+		}else if(props.townCode) {
+			newParams.conditions.push(townCode)
+		} else if (props.villageCode) {
+			newParams.conditions.push(villageCode)
+		}
+    return crud.query(newParams)
+  }
+})
+
+
+
 const query = {
     query: data => {
         return service.post(`${baseUrl}/queryCompanyList`,data)
