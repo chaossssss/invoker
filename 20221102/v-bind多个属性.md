@@ -1,0 +1,1 @@
+<child v-bind={layer: layer, deptList: deptList}></child>
