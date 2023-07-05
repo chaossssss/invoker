@@ -1,0 +1,1 @@
+[vue3 项目中设置组件name](https://www.cnblogs.com/liujunhang/p/17008927.html)
