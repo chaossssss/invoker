@@ -10,6 +10,11 @@ onMounted(() => {
       seriesIndex: 0,
       dataIndex: curIndex.value,
     })
+    chartRef.value.dispatchAction({
+      type: 'showTip',
+      seriesIndex: 0,
+      dataIndex: curIndex.value,
+    })
   })
 })
 const mouseoverMethod = (v) => {
@@ -27,7 +32,7 @@ const mouseoverMethod = (v) => {
 
   // 高亮显示悬停的那块
   pieChart.value.dispatchAction({
-    type: 'hideTip',
+    type: 'showTip',
     seriesIndex: 0,
     dataIndex: v.dataIndex,
   })
@@ -58,6 +63,11 @@ timer.value = setInterval(function () {
   curIndex.value = (curIndex.value + 1) % dataLen
   pieChart.value.dispatchAction({
     type: 'highlight',
+    seriesIndex: 0,
+    dataIndex: curIndex.value,
+  })
+  pieChart.value.dispatchAction({
+    type: 'showTip',
     seriesIndex: 0,
     dataIndex: curIndex.value,
   })
