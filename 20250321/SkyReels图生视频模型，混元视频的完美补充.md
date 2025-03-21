@@ -1,0 +1,1 @@
+[ComfyUI:SkyReels图生视频模型，混元视频的完美补充](https://blog.csdn.net/m0_74942241/article/details/145832074)
