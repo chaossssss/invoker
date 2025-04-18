@@ -1,0 +1,1 @@
+[详解JavaScript中的replace()函数](https://blog.csdn.net/qq_46658751/article/details/123390095)
